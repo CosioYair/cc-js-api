@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>WebApp</title>
+
+    <!-- Materialize -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
+    <!-- Main script -->
+</head>
+
+<body>
+    <nav>
+        <div class="nav-wrapper">
+            <a href="#" class="brand-logo">WebApp</a>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <li><a href="index.html">Home</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <body>
+        <div class="container">
+            <div class="row">
+                <div class="col s12 m12">
+                    <div class="card blue-grey darken-1">
+                        <div class="card-content white-text">
+                            <span class="card-title">Summary</span>
+                            <p>
+                                Below is an simple form with an email input field. This input field will need to be read
+                                and sent to ONE using the ONE JS API.
+                                <br />
+                                When calling this API, use the unique sitekey "ONE-AUUOH7T6PE-6701" and use the
+                                interaction path "https://www.thunderhead.com/".
+                                <br />
+                                There are rules on the server to only return the image to the client if the properties
+                                object contains the node "key" with your email applied as the value
+                                ("eniak.hernandez@cxteam.com.mx"). You must send the email address with the property
+                                name "key", no other will work.
+                                <br />
+                                If the request to the API is successful, a National Geographic picture of Thunderhead
+                                clouds will be displayed at the bottom of the page.
+                                <br />
+                                Write your logic into "js/main.js" and use the JS API document to help you.
+                            </p>
+
+                            <h5>Tasks</h5>
+                            <ol>
+                                <li>Add a listener to the email input field to capture the email address into a
+                                    variable.</li>
+                                <li>Add a listener to the submit button to send an interaction with the email captured
+                                    from the page.</li>
+                                <li>Process the response returned after sending an interaction, using the response API
+                                    function</li>
+                                <li>(optional) Validate the email address before allowing the interaction to send.</li>
+                                <li>(optional) Don't send duplicates. </li>
+                                <li>**If you are having issues with a timeout error with the processResponse function;
+                                    add these parameters to it and try again: processResponse(response, true, 0);**
+                            </ol>
+
+                            <h5>Considerations</h5>
+                            <p>
+                                Some clients may have a slower internet connection, so the ONE JS API might not be
+                                available at the time of sending interaction or properties.
+                                <br />Add some logic that will ensure the ONE JS API is available before allowing
+                                interactions to be sent.
+                            </p>
+                        </div>
+                        <div class="card-action">
+                            <a href="./Using the JS API.pdf">ONE JS API Documentation</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="input-field col s12">
+                    <input placeholder="Enter email address..." id="email-address" type="email" class="validate">
+                    <label for="email-address">Customer Key</label>
+                </div>
+                <label id="notification-message"></label>
+            </div>
+            <div class="row right">
+                <a class="waves-effect waves-light btn" id="submit">Submit</a>
+            </div>
+            <br />
+            <div class="row">
+                The image will display here when a successful request has been sent:
+                <br />
+                <div id="banner"></div>
+            </div>
+        </div>
+    </body>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script>(function (o, n, e) { var l = 'link', s = 'script', c = 'createElement', i = 'insertBefore', f = o.getElementsByTagName(s)[0], p = f.parentNode, x = o[c](l), y = o[c](l), z = o[c](s); x.rel = 'preconnect'; x.href = n; y.rel = 'preload'; y.href = e; y.as = s; z.id = 'thxTag'; z.src = e; p[i](x, f); p[i](y, f); p[i](z, f); })(document, 'https://onedemo.thunderhead.com', 'https://onedemo.cdn.thunderhead.com/one/rt/js/one-tag.js?siteKey=ONE-AUUOH7T6PE-6701');</script>
+    <script src="./js/api.js"></script>
+    <script src="./js/form.js"></script>
+    <script src="./js/main.js"></script>
+</body>
+
+</html>
